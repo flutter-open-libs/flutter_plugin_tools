@@ -1,13 +1,10 @@
-import 'dart:ffi';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'flutter_plugin_tools_platform_interface.dart';
 
-/// An implementation of [FlutterPluginToolsPlatform] that uses method channels.
 class MethodChannelFlutterPluginTools extends FlutterPluginToolsPlatform {
-  /// The method channel used to interact with the native platform.
+
   @visibleForTesting
   final methodChannel = const MethodChannel('sing.top/flutter_plugin_tools');
 
