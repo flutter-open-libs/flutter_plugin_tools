@@ -1,6 +1,6 @@
-# flutter_plugin_tools_example
+# sing_plugin_tools_example
 
-Demonstrates how to use the flutter_plugin_tools plugin.
+Demonstrates how to use the sing_plugin_tools plugin.
 
 ## Getting Started
 

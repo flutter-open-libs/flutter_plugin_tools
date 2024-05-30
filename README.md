@@ -7,7 +7,7 @@
 
 ```
 dependencies:
-  sing_plugin_tools: ^0.0.1
+  sing_plugin_tools: ^0.0.2
 ```
 
 ### API
@@ -37,10 +37,11 @@ dependencies:
     String androidOaid = await FlutterPluginTools().getAndroidOaid() ?? '-1';
     ```
 
-* 请求 idfa，仅支持 iOS
+* 请求 idfa，仅支持 iOS，记得添加权限
 
     ```
-    String idfa = await FlutterPluginTools().getIosIdfa() ?? '-1';
+    // -1:.denied,-2:.notDetermined,-3:.restricted
+    String idfa = await FlutterPluginTools().getIosIdfa() ?? '-1'; 
     ```
 
 

@@ -2,7 +2,7 @@ import Flutter
 import UIKit
 import XCTest
 
-@testable import flutter_plugin_tools
+@testable import sing_plugin_tools
 
 // This demonstrates a simple unit test of the Swift portion of this plugin's implementation.
 //
@@ -11,7 +11,7 @@ import XCTest
 class RunnerTests: XCTestCase {
 
   func testGetPlatformVersion() {
-    let plugin = FlutterPluginToolsPlugin()
+    let plugin = SingPluginToolsPlugin()
 
     let call = FlutterMethodCall(methodName: "getPlatformVersion", arguments: [])
 

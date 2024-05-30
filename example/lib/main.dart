@@ -1,7 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:flutter_plugin_tools/flutter_plugin_tools.dart';
+
+import 'package:sing_plugin_tools/sing_plugin_tools.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class _MyAppState extends State<MyApp> {
   String _phoneState = '';
   String _androidOaid = '';
   String _iosIdfa = '显示在这里';
-  final _flutterPluginToolsPlugin = FlutterPluginTools();
+  final _flutterPluginToolsPlugin = SingPluginTools();
 
   @override
   void initState() {
@@ -91,8 +92,12 @@ class _MyAppState extends State<MyApp> {
       setState(() => _iosIdfa = '该设备类型不支持');
     }else{
       String idfa = await _flutterPluginToolsPlugin.getIosIdfa() ?? '-1';
-      if(idfa == '-1'){
-        setState(() => _iosIdfa = '没有权限或设备不支持');
+      if(idfa == '-1') {
+        setState(() => _iosIdfa = '用户拒绝使用 IDFA');
+      } else if(idfa == '-2'){
+        setState(() => _iosIdfa = '用户尚未决定是否允许使用 IDFA');
+      } else if(idfa == '-3'){
+        setState(() => _iosIdfa = '用户限制了使用 IDFA');
       }else{
         setState(() => _iosIdfa = idfa);
       }
@@ -133,7 +138,7 @@ class _MyAppState extends State<MyApp> {
               children: [
                 const Expanded(child: Text('获取 Android id',style: TextStyle(color: Colors.black87,fontSize: 14))),
                 Text(_androidId,style: const TextStyle(color: Colors.grey,fontSize: 14)),
-                Image.asset('assets/images/ic_next.png',width: 15,height: 15)
+                Image.asset('images/ic_next.png',width: 15,height: 15)
               ],
             ),
           ),
@@ -162,15 +167,15 @@ class _MyAppState extends State<MyApp> {
               children: [
                 const Expanded(child: Text('请求 READ_PHONE_STATE 权限',style: TextStyle(color: Colors.black87,fontSize: 14))),
                 Text(_phoneState,style: const TextStyle(color: Colors.grey,fontSize: 14)),
-                Image.asset('assets/images/ic_next.png',width: 15,height: 15)
+                Image.asset('images/ic_next.png',width: 15,height: 15)
               ],
             ),
           ),
           Container(
             alignment: Alignment.centerLeft,
             decoration: const BoxDecoration(
-              color: Colors.white,
-              border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))
+                color: Colors.white,
+                border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))
             ),
             padding: const EdgeInsets.only(left: 15,right: 15,bottom: 12),
             child: const Text('仅Android10以下',style: TextStyle(color: Colors.grey,fontSize: 12)),
@@ -191,15 +196,15 @@ class _MyAppState extends State<MyApp> {
               children: [
                 const Expanded(child: Text('获取 Android imei',style: TextStyle(color: Colors.black87,fontSize: 14))),
                 Text(_androidImei,style: const TextStyle(color: Colors.grey,fontSize: 14)),
-                Image.asset('assets/images/ic_next.png',width: 15,height: 15)
+                Image.asset('images/ic_next.png',width: 15,height: 15)
               ],
             ),
           ),
           Container(
             alignment: Alignment.centerLeft,
             decoration: const BoxDecoration(
-              color: Colors.white,
-              border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))
+                color: Colors.white,
+                border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))
             ),
             padding: const EdgeInsets.only(left: 15,right: 15,bottom: 12),
             child: const Text('需要权限(仅Android10以下) : READ_PHONE_STATE',style: TextStyle(color: Colors.grey,fontSize: 12)),
@@ -220,15 +225,15 @@ class _MyAppState extends State<MyApp> {
               children: [
                 const Expanded(child: Text('获取 Android oaid',style: TextStyle(color: Colors.black87,fontSize: 14))),
                 Text(_androidOaid,style: const TextStyle(color: Colors.grey,fontSize: 14)),
-                Image.asset('assets/images/ic_next.png',width: 15,height: 15)
+                Image.asset('images/ic_next.png',width: 15,height: 15)
               ],
             ),
           ),
           Container(
             alignment: Alignment.centerLeft,
             decoration: const BoxDecoration(
-              color: Colors.white,
-              border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))
+                color: Colors.white,
+                border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))
             ),
             padding: const EdgeInsets.only(left: 15,right: 15,bottom: 12),
             child: const Text('无需权限，仅Android10以上支持',style: TextStyle(color: Colors.grey,fontSize: 12)),
@@ -249,15 +254,15 @@ class _MyAppState extends State<MyApp> {
               children: [
                 const Expanded(child: Text('获取 iOS idfa  ',style: TextStyle(color: Colors.black87,fontSize: 14))),
                 const Text('仅iOS支持',style: TextStyle(color: Colors.grey,fontSize: 14),overflow: TextOverflow.ellipsis),
-                Image.asset('assets/images/ic_next.png',width: 15,height: 15)
+                Image.asset('images/ic_next.png',width: 15,height: 15)
               ],
             ),
           ),
           Container(
             alignment: Alignment.centerLeft,
             decoration: const BoxDecoration(
-              color: Colors.white,
-              border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))
+                color: Colors.white,
+                border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))
             ),
             padding: const EdgeInsets.only(left: 15,right: 15,bottom: 12),
             child:  Text(_iosIdfa,style: TextStyle(color: Colors.grey,fontSize: 12)),

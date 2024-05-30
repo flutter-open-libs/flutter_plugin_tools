@@ -1,27 +1,27 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_plugin_tools (0.0.1):
-    - Flutter
   - integration_test (0.0.1):
+    - Flutter
+  - sing_plugin_tools (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - flutter_plugin_tools (from `.symlinks/plugins/flutter_plugin_tools/ios`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - sing_plugin_tools (from `.symlinks/plugins/sing_plugin_tools/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  flutter_plugin_tools:
-    :path: ".symlinks/plugins/flutter_plugin_tools/ios"
   integration_test:
     :path: ".symlinks/plugins/integration_test/ios"
+  sing_plugin_tools:
+    :path: ".symlinks/plugins/sing_plugin_tools/ios"
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  flutter_plugin_tools: 6b66642ea365e3dd52d6fc7efcf0fd981144e4cf
   integration_test: 13825b8a9334a850581300559b8839134b124670
+  sing_plugin_tools: 2af2ee064d653dfbb811dd35c25e9430c40fa8e5
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
 
