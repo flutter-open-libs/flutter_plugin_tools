@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:sing_plugin_tools/sing_plugin_tools.dart';
+import 'package:sing_plugin_tools/widgets/sing_cell_item.dart';
 
 void main() {
   runApp(const MyApp());
@@ -119,6 +120,21 @@ class _MyAppState extends State<MyApp> {
               buildGetAndroidImei(),
               buildGetAndroidOaid(),
               buildGetIosIdfa(),
+              SingCellItem(
+                height: 56.0,
+                padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 0.0),
+                // assetPath: 'assets/images/ic_feedback.png',
+                iconSize: const Size(28.0,28.0),
+                gap: 12.0,
+                text: '我是Item',
+                textColor: const Color(0xff131732),
+                textSize: 16.0,
+                decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))),
+                onTap: ()=> {},
+                showNext: true,
+                // separator: Container(width: 200.0,height: 1.0,color: Colors.grey),
+                nextIcon: const Icon(Icons.arrow_forward_ios,size: 16.0,color:Colors.grey),
+              ),
             ],
           ),
         ),
@@ -265,7 +281,7 @@ class _MyAppState extends State<MyApp> {
                 border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))
             ),
             padding: const EdgeInsets.only(left: 15,right: 15,bottom: 12),
-            child:  Text(_iosIdfa,style: TextStyle(color: Colors.grey,fontSize: 12)),
+            child:  Text(_iosIdfa,style: const TextStyle(color: Colors.grey,fontSize: 12)),
           ),
         ],
       ),
