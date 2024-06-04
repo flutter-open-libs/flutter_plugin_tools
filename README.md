@@ -7,7 +7,7 @@
 
 ```
 dependencies:
-  sing_plugin_tools: ^0.0.2
+  sing_plugin_tools: ^0.0.5
 ```
 
 ### API
@@ -81,6 +81,31 @@ dependencies:
       margin: const EdgeInsets.symmetric(horizontal: 5.0),
       child: const Text('  自定义  ',style: TextStyle(color: Colors.grey,fontSize: 12.0))
     )
+  ),
+  ```
+
+* 通用按钮
+
+  ```
+  import 'package:sing_plugin_tools/widgets/sing_button.dart';
+
+  SingButton(
+    title : 'SingButton', // 按钮文字
+    titleTextStyle : const TextStyle(color: Colors.white,fontSize: 16.0), // 按钮样式
+    fillColor : const Color(0xFF19B1F4),   // 填充颜色
+    highlightColor : const Color(0x40CCCCCC), // 按下颜色
+    size : const Size(88.0,36.0), // 按钮大小
+    elevation : 0, // 阴影
+    highlightElevation : 0, // 按下阴影
+    side : const BorderSide(color: Colors.transparent,width: 0.2), // 边框
+    // sideColor : Colors.transparent, // 传 side 后无效
+    // sideWidth : 0.2, // 传 side 后无效
+    borderRadius : const BorderRadius.all(Radius.circular(20.0)), // 样式
+    // radius : 20.0,  // 传 borderRadius 后无效
+    padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 3.0),
+    margin: EdgeInsets.zero,
+    onPressed : ()=> { }, // 点击事件
+    onLongPress : ()=> debugPrint('SingButton Long Clicked'),
   ),
   ```
 
