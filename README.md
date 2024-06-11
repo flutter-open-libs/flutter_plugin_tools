@@ -10,6 +10,10 @@ dependencies:
   sing_plugin_tools: ^0.0.5
 ```
 
+### 效果图
+
+![](./example/images/demo.jpg "")
+
 ### API
 
 * 获取 androidId (仅支持 Android)
@@ -108,5 +112,28 @@ dependencies:
     onLongPress : ()=> debugPrint('SingButton Long Clicked'),
   ),
   ```
+
+* 通用按钮
+
+  ```
+  var list = [
+    ImgTxtBean('assets/images/example.png', '标签1', () => debugPrint('标签1')),
+    ImgTxtBean('assets/images/example.png', '标签2', () => debugPrint('标签2')),
+    ImgTxtBean('assets/images/example.png', '标签3', () => debugPrint('标签3')),
+    ImgTxtBean('assets/images/example.png', '标签4', () => debugPrint('标签4')),
+    ImgTxtBean('assets/images/example.png', '标签5', () => debugPrint('标签5')),
+  ];
+  SingImgTxtItem(
+    list,
+    title: '我的标题',
+    titleGap: 15.0,
+    gap: 6.0,
+    margin: const EdgeInsets.symmetric(horizontal: 15.0),
+    padding: const EdgeInsets.all(15.0),
+    iconSize: const Size(25.0,25.0),
+    crossAxisCount:5,
+  );
+  ```
+
 
 ### 后续工具继续补充...
