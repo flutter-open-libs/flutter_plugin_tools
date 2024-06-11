@@ -7,7 +7,7 @@
 
 ```
 dependencies:
-  sing_plugin_tools: ^0.0.5
+  sing_plugin_tools: ^0.0.7
 ```
 
 ### 效果图
@@ -113,7 +113,7 @@ dependencies:
   ),
   ```
 
-* 通用按钮
+* 类似 Gird 的图片+文字，支持小标题
 
   ```
   var list = [

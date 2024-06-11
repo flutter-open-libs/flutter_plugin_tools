@@ -57,7 +57,7 @@ class SingImgTxtItem extends StatelessWidget {
                   return Container();
                 }else{
                   return InkWell(
-                    onTap: list[pos].onTap,
+                    onTap: list[pos].onTap ?? () => debugPrint('没有点击事件'),
                     child: Column(
                         mainAxisSize : MainAxisSize.min,
                         children: [
@@ -80,7 +80,7 @@ class SingImgTxtItem extends StatelessWidget {
 class ImgTxtBean {
   String assetPath;
   String title;
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
 
-  ImgTxtBean(this.assetPath, this.title, this.onTap);
+  ImgTxtBean(this.assetPath, this.title, {this.onTap});
 }

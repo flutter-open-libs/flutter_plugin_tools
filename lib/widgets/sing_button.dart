@@ -9,7 +9,7 @@ class SingButton extends StatelessWidget {
     this.titleTextStyle,
     this.fillColor = const Color(0xFF19B1F4),
     this.highlightColor,
-    this.size = const Size(88.0,36.0),
+    this.size,
     this.elevation = 0,
     this.highlightElevation = 0,
     this.side,
@@ -27,7 +27,7 @@ class SingButton extends StatelessWidget {
   final TextStyle? titleTextStyle; /// 文字样式
   final Color fillColor; /// 填充颜色
   final Color? highlightColor; /// 按下颜色
-  final Size size; /// 按钮的大小
+  final Size? size; /// 按钮的大小
   final double elevation;
   final double highlightElevation;
   final BorderSide? side; /// 按钮边框
@@ -52,13 +52,33 @@ class SingButton extends StatelessWidget {
         highlightElevation:highlightElevation,
         shape: RoundedRectangleBorder(
             side: side ?? BorderSide(color: sideColor,width: sideWidth),
-            borderRadius : borderRadius ?? BorderRadius.all(Radius.circular(radius ?? size.height / 2))
+            borderRadius : _getBorderRadius()
         ),
-        constraints: BoxConstraints.tightFor(width: size.width, height:size.height),
+        constraints: _getConstraints(),
         onPressed: onPressed ?? ()=> debugPrint('SingButton Clicked'),
         onLongPress: onPressed ?? ()=> debugPrint('SingButton Clicked'),
         child: Text(title,style: titleTextStyle ?? const TextStyle(color: Colors.white,fontSize: 16.0)),
       ),
     );
+  }
+
+  BoxConstraints _getConstraints(){
+    if(size == null){
+      return const BoxConstraints(minWidth: 88.0, minHeight: 36.0);
+    }else{
+      return BoxConstraints(minWidth: size!.width, minHeight: size!.height);
+    }
+  }
+
+  BorderRadiusGeometry _getBorderRadius(){
+    if(borderRadius != null){
+      return borderRadius!;
+    }else if(radius != null){
+      return BorderRadius.all(Radius.circular(radius!));
+    }else if(size != null){
+      return BorderRadius.all(Radius.circular(size!.height / 2));
+    } else{
+      return const BorderRadius.all(Radius.circular(36.0 / 2));
+    }
   }
 }
