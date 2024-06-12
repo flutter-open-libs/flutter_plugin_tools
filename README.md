@@ -117,11 +117,11 @@ dependencies:
 
   ```
   var list = [
-    ImgTxtBean('assets/images/example.png', '标签1', () => debugPrint('标签1')),
-    ImgTxtBean('assets/images/example.png', '标签2', () => debugPrint('标签2')),
-    ImgTxtBean('assets/images/example.png', '标签3', () => debugPrint('标签3')),
-    ImgTxtBean('assets/images/example.png', '标签4', () => debugPrint('标签4')),
-    ImgTxtBean('assets/images/example.png', '标签5', () => debugPrint('标签5')),
+    ImgTxtBean('assets/images/example.png', '标签1', onTap: () => debugPrint('标签1')),
+    ImgTxtBean('assets/images/example.png', '标签2', onTap: () => debugPrint('标签2')),
+    ImgTxtBean('assets/images/example.png', '标签3', onTap: () => debugPrint('标签3')),
+    ImgTxtBean('assets/images/example.png', '标签4', onTap: () => debugPrint('标签4')),
+    ImgTxtBean('assets/images/example.png', '标签5', onTap: () => debugPrint('标签5')),
   ];
   SingImgTxtItem(
     list,
