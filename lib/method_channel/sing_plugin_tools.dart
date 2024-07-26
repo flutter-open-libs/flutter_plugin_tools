@@ -1,4 +1,4 @@
-import 'sing_plugin_tools_platform_interface.dart';
+import './sing_plugin_tools_platform_interface.dart';
 
 class SingPluginTools {
   Future<String?> getAndroidID() {

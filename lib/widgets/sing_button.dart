@@ -8,6 +8,7 @@ class SingButton extends StatelessWidget {
     this.titleTextStyle,
     this.fillColor = const Color(0xFF19B1F4),
     this.highlightColor,
+    this.splashColor,
     this.size,
     this.elevation = 0,
     this.highlightElevation = 0,
@@ -26,6 +27,7 @@ class SingButton extends StatelessWidget {
   final TextStyle? titleTextStyle; // 文字样式
   final Color fillColor; // 填充颜色
   final Color? highlightColor; // 按下颜色
+  final Color? splashColor; // 水波纹颜色
   final Size? size; // 按钮的大小
   final double elevation;
   final double highlightElevation;
@@ -48,6 +50,7 @@ class SingButton extends StatelessWidget {
         elevation: elevation,
         padding: padding ?? EdgeInsets.zero,
         highlightColor: highlightColor ?? Theme.of(context).highlightColor,
+        splashColor: splashColor ?? Theme.of(context).splashColor,
         highlightElevation: highlightElevation,
         shape: RoundedRectangleBorder(
             side: side ?? BorderSide(color: sideColor, width: sideWidth),

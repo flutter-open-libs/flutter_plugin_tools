@@ -1,3 +1,7 @@
+## 0.0.8
+
+*  add get、logger、get_storage、flutter_screenutil、dio、flutter_easyloading
+
 ## 0.0.7
 
 * Fix bugs in the width and height of SingButton

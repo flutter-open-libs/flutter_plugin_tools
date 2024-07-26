@@ -1,8 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:sing_plugin_tools/export.dart';
 import 'dart:async';
 
-import 'package:sing_plugin_tools/sing_plugin_tools.dart';
+import 'package:sing_plugin_tools/method_channel/sing_plugin_tools.dart';
 import 'package:sing_plugin_tools/widgets/sing_cell_item.dart';
 import 'package:sing_plugin_tools/widgets/sing_button.dart';
 import 'package:sing_plugin_tools/widgets/sing_img_txt_item.dart';
@@ -31,6 +32,12 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     textController.text = '我是副标题';
+
+    Log.init(true);
+    Log.e('message');
+
+    SpUtil.write('key', 'value');
+    SpUtil.read('key', 'defaultValue');
   }
 
   Future<void> getAndroidID() async {

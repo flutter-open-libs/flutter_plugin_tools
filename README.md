@@ -10,6 +10,19 @@ dependencies:
   sing_plugin_tools: ^0.0.7
 ```
 
+### 说明
+
+本项目集成了以下三方插件：  
+
+```
+  get: ^4.6.5
+  logger: ^2.3.0 # 日志打印
+  get_storage: ^2.0.3 # 本地存储插件get_storage,https://pub.dev/packages/get_storage
+  flutter_screenutil: ^5.9.0
+  dio: ^5.4.3+1
+  flutter_easyloading: ^3.0.5 # https://pub.dev/packages/flutter_easyloading loading窗口
+```
+
 ### 效果图
 
 ![](./example/images/demo.jpg "")
@@ -135,5 +148,26 @@ dependencies:
   );
   ```
 
+* EventBusUtil
+
+  ```
+  EventBusUtil.singleton.send('aaa');
+  ```
+  
+* LogUtil
+
+  ```
+  Log.init(true); // 是否开启日志打印
+  Log.e('test')
+  ```
+  
+* SpUtil
+
+  ```
+  SpUtil.init(SpUtil.spKey);
+  SpUtil.write('key', 'value');
+  SpUtil.read('key', 'defaultValue');
+  ```
+  
 
 ### 后续工具继续补充...

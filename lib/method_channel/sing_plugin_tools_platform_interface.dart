@@ -1,6 +1,5 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
-
-import 'sing_plugin_tools_method_channel.dart';
+import './sing_plugin_tools_method_channel.dart';
 
 abstract class SingPluginToolsPlatform extends PlatformInterface {
   SingPluginToolsPlatform() : super(token: _token);

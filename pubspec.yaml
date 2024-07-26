@@ -1,6 +1,6 @@
 name: sing_plugin_tools
 description: "各种flutter的小插件、工具"
-version: 0.0.7
+version: 0.0.8
 homepage: https://github.com/flutter-open-libs/flutter_plugin_tools
 
 environment:
@@ -11,6 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
+
+  get: ^4.6.6
+  logger: ^2.3.0
+  get_storage: ^2.0.3 # 本地存储插件get_storage,https://pub.dev/packages/get_storage
+  flutter_screenutil: ^5.9.0
+  dio: ^5.4.3+1
+  flutter_easyloading: ^3.0.5 # https://pub.dev/packages/flutter_easyloading loading窗口
 
 dev_dependencies:
   flutter_test:
