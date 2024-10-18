@@ -20,6 +20,7 @@ class SingCellItem extends StatelessWidget {
     this.focusNode,
     this.controller,
     this.subTitleTextStyle,
+    this.package,
     this.subTitleHint = '',
     this.subTitleHintTextStyle,
     this.subTitleContentPadding,
@@ -36,11 +37,12 @@ class SingCellItem extends StatelessWidget {
   final Size iconSize; // 图标的大小
   final double gap; // 图标和文字的间距
   final String title; // 文字
+  final String? package;
   final TextStyle? titleTextStyle; // 文字样式
   final BoxDecoration? decoration; // item的装饰
   final GestureTapCallback? onTap; // item的点击回调
   final Widget?
-      separator; // 自定义的装饰，正常是一根线，在 decoration 满足不了的情况下自定义，比如项左右有边距。当然其他 widget 也可以
+  separator; // 自定义的装饰，正常是一根线，在 decoration 满足不了的情况下自定义，比如项左右有边距。当然其他 widget 也可以
   final bool showNext; // 是否展示右侧的箭头
   final Widget? nextIcon; // 自定义的右侧icon
 
@@ -71,7 +73,7 @@ class SingCellItem extends StatelessWidget {
               child: Row(children: [
                 if (assetPath.isNotEmpty)
                   Image.asset(assetPath,
-                      width: iconSize.width, height: iconSize.height),
+                      width: iconSize.width, height: iconSize.height,package: package),
                 if (assetPath.isNotEmpty) SizedBox(width: gap),
                 Text(title,
                     style: titleTextStyle ??
@@ -94,7 +96,7 @@ class SingCellItem extends StatelessWidget {
                   InkWell(
                     onTap: onSubTap ??
                         onTap ??
-                        () => debugPrint('SingCellItem sub arrow'),
+                            () => debugPrint('SingCellItem sub arrow'),
                     child: nextIcon ??
                         const Icon(Icons.arrow_forward_ios,
                             size: 16.0, color: Colors.grey),

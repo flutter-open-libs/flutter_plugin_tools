@@ -63,7 +63,7 @@ class SingImgTxtItem extends StatelessWidget {
                     onTap: list[pos].onTap ?? () => debugPrint('没有点击事件'),
                     child: Column(mainAxisSize: MainAxisSize.min, children: [
                       Image.asset(list[pos].assetPath,
-                          width: iconSize.width, height: iconSize.height),
+                          width: iconSize.width, height: iconSize.height,package: list[pos].package),
                       SizedBox(height: gap ?? 0.0),
                       Text(list[pos].title,
                           style: textStyle ??
@@ -84,7 +84,8 @@ class SingImgTxtItem extends StatelessWidget {
 class ImgTxtBean {
   String assetPath;
   String title;
+  String? package;
   final GestureTapCallback? onTap;
 
-  ImgTxtBean(this.assetPath, this.title, {this.onTap});
+  ImgTxtBean(this.assetPath, this.title, {this.onTap,this.package});
 }

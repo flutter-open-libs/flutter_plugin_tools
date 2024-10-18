@@ -7,7 +7,7 @@
 
 ```
 dependencies:
-  sing_plugin_tools: ^0.0.7
+  sing_plugin_tools: ^0.0.15
 ```
 
 ### 说明
@@ -160,7 +160,7 @@ dependencies:
   Log.init(true); // 是否开启日志打印
   Log.e('test')
   ```
-  
+
 * SpUtil
 
   ```
@@ -168,6 +168,23 @@ dependencies:
   SpUtil.write('key', 'value');
   SpUtil.read('key', 'defaultValue');
   ```
-  
+
+* SingUtil
+
+  ```
+  // 各种工具
+  SingUtil.maskPhone('13111111111'); // 手机号中间4位用 * 代替，返回 131****1111
+  ```
+
+* SingDashedLine
+
+  ```
+  SingDashedLine(
+    color: Colors.red,
+    dashWidth: 5.0,
+    dashSpace: 3.0,
+    width: 100.0,       // 可选参数，默认为200.0
+  )
+  ``` 
 
 ### 后续工具继续补充...

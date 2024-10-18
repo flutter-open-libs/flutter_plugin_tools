@@ -4,8 +4,9 @@ import 'package:get_storage/get_storage.dart';
 // SpUtil().token.val = 'xxxxxxxxxxxxxxxx';
 
 class SpUtil {
-  static const spKey = 'MyStorage';
-  static final GetStorage _storage = GetStorage(spKey);
+
+  static var spKey = 'MyStorage';
+  static  GetStorage _storage = GetStorage(spKey);
 
   static var IS_FIRST = 'is_first';
   static var IMEI = 'user_imei';
@@ -26,9 +27,11 @@ class SpUtil {
   static var DEV_URL = 'dev_url'; // 开发环境
 
 
-  static void init(String key) async {
-    await GetStorage.init(key);
+  static void init(String key) async { 
+    spKey = 'MyStorage';
+    _storage = GetStorage(spKey);
   }
+
 //// 通用方法 /////////////////////////////////////
   // 保存数据
   static void write(String key, dynamic value) {

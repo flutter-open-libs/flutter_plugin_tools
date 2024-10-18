@@ -136,6 +136,7 @@ class _MyAppState extends State<MyApp> {
               buildButton(),
               const SizedBox(height: 15),
               buildImTxt(),
+              buildDashed(),
             ],
           ),
         ),
@@ -352,14 +353,33 @@ class _MyAppState extends State<MyApp> {
       ImgTxtBean('images/example.png', '标签5', onTap: () => debugPrint('标签5')),
     ];
     return  SingImgTxtItem(
-        list,
-        title: '我的标题',
-        titleGap: 15.0,
-        gap: 6.0,
-        margin: const EdgeInsets.symmetric(horizontal: 15.0),
-        padding: const EdgeInsets.all(15.0),
-        iconSize: const Size(25.0,25.0),
-        crossAxisCount:5,
+      list,
+      title: '我的标题',
+      titleGap: 15.0,
+      gap: 6.0,
+      margin: const EdgeInsets.symmetric(horizontal: 15.0),
+      padding: const EdgeInsets.all(15.0),
+      iconSize: const Size(25.0,25.0),
+      crossAxisCount:5,
+    );
+  }
+
+  Widget buildDashed(){
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('红色虚线'),
+          const SizedBox(height: 5.0),
+          SingDashedLine(
+            color: Colors.red,
+            dashWidth: 5.0,
+            dashSpace: 3.0,
+            width: 100.0,       // 可选参数，默认为200.0
+          )
+        ],
+      ),
     );
   }
 }

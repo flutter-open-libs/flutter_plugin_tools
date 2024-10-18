@@ -1,3 +1,31 @@
+## 0.0.15
+
+*  add SingUtil
+
+## 0.0.14
+
+*  add SingDashedLine
+
+## 0.0.13
+
+*  Fix ApiProvider add `_dio!.options.connectTimeout = Duration(seconds: 5);`
+
+## 0.0.12
+
+*  Fix ApiProvider add `EventBusUtil.singleton.send('token_error');`
+
+## 0.0.11
+
+*  Fix SingCellItem add `package`
+
+## 0.0.10
+
+*  Fix SingImgTxtItem add `package`
+
+## 0.0.9
+
+*  Fix sp_util
+
 ## 0.0.8
 
 *  add get、logger、get_storage、flutter_screenutil、dio、flutter_easyloading

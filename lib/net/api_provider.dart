@@ -23,6 +23,7 @@ class ApiProvider {
       _dio = Dio();
 
       _dio!.options.baseUrl = _baseUrl;
+      _dio!.options.connectTimeout = Duration(seconds: 5);
       _dio!.interceptors.add(InterceptorsWrapper(
         onRequest: onRequestInterceptor,
         onResponse: onResponseInterceptor,
@@ -53,8 +54,8 @@ class ApiProvider {
       var result = ApiResponse.fromJson(response.data);
 
       if (result.code == 405 || result.code == 406) {
-        // Get.offAllNamed(Routes.LOGIN);
         EasyLoading.showToast('${result.msg}');
+        EventBusUtil.singleton.send('token_error');
       } else {
         if (isNeedToast && result.code != 200) {
           EasyLoading.showToast('${result.msg}');
