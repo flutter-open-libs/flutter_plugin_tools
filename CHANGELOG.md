@@ -1,3 +1,11 @@
+## 0.0.17
+
+*  Fix SingContainerLinearGradient `begin` and `end`
+
+## 0.0.16
+
+*  add SingContainerLinearGradient
+
 ## 0.0.15
 
 *  add SingUtil

@@ -7,7 +7,7 @@
 
 ```
 dependencies:
-  sing_plugin_tools: ^0.0.15
+  sing_plugin_tools: ^0.0.16
 ```
 
 ### 说明
@@ -186,5 +186,18 @@ dependencies:
     width: 100.0,       // 可选参数，默认为200.0
   )
   ``` 
+  
+* SingContainerLinearGradient 渐变背景
+
+  ```
+  SingContainerLinearGradient(
+    width: Get.width - 30.w,
+    height: 100.0,
+    colors: [AppColor.main, const Color(0xff00ffff)],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    child:Text('SingContainerLinearGradient',style: text_white_18)
+  )
+  ```
 
 ### 后续工具继续补充...
