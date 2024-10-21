@@ -1,3 +1,7 @@
+## 0.0.18
+
+*  add SingImage
+
 ## 0.0.17
 
 *  Fix SingContainerLinearGradient `begin` and `end`

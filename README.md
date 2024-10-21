@@ -7,7 +7,7 @@
 
 ```
 dependencies:
-  sing_plugin_tools: ^0.0.16
+  sing_plugin_tools: ^0.0.18
 ```
 
 ### 说明
@@ -21,6 +21,7 @@ dependencies:
   flutter_screenutil: ^5.9.0
   dio: ^5.4.3+1
   flutter_easyloading: ^3.0.5 # https://pub.dev/packages/flutter_easyloading loading窗口
+  cached_network_image: ^3.4.1 # 带缓存的图片加载，https://pub.dev/packages/cached_network_image
 ```
 
 ### 效果图
@@ -198,6 +199,18 @@ dependencies:
     end: Alignment.bottomCenter,
     child:Text('SingContainerLinearGradient',style: text_white_18)
   )
+  ```
+  
+* SingImage
+  
+  ```
+  SingImage('images/image.webp',width: 40.w),
+  SingImage('images/image.webp',width: 40.w,cornerRadius:8.w),
+  SingImage('images/image.webp',width: 40.w - 2.w,cornerRadius:8.w,borderWidth: 1.w,borderColor: AppColor.green),
+  SingImage('images/image.webp',width: 40.w,isCircle: true),
+  SingImage('images/image.webp',width: 40.w - 2.w,isCircle: true,borderWidth: 1.w,borderColor: AppColor.green),
+  SingImage('https://xxx.png',width: 40.w,isCircle: true),
+  SingImage('https://xxx.png',width: 40.w - 2.w,isCircle: true,borderWidth: 1.w,borderColor: AppColor.green),
   ```
 
 ### 后续工具继续补充...

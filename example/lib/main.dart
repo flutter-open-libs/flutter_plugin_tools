@@ -33,21 +33,16 @@ class _MyAppState extends State<MyApp> {
       builder: (context , child) {
         return GetMaterialApp(
           title: 'Flutter Plugins',
-          supportedLocales: const [
-            Locale('zh', 'CN'), // 中文简体
-          ],
-          locale: const Locale('zh', 'CN'),
           theme: ThemeData(
-              brightness: Brightness.light,//深色还是浅色,也就是暗黑模式还是正常模式 电池栏颜色
-              primaryColor: Colors.black,//顶部导航栏和状态栏的颜色修改，需要用到这个属性，类型 Color。
-              colorScheme: const ColorScheme.light().copyWith(primary: Colors.white),
-              primarySwatch: Colors.green,
-              appBarTheme: const AppBarTheme(
-                  backgroundColor: Colors.white,
-                  scrolledUnderElevation: 0.0,
-                  centerTitle: true
-              )
-
+            brightness: Brightness.light,//深色还是浅色,也就是暗黑模式还是正常模式 电池栏颜色
+            primaryColor: Colors.black,//顶部导航栏和状态栏的颜色修改，需要用到这个属性，类型 Color。
+            colorScheme: const ColorScheme.light().copyWith(primary: Colors.white),
+            primarySwatch: Colors.green,
+            appBarTheme: const AppBarTheme(
+                backgroundColor: Colors.white,
+                scrolledUnderElevation: 0.0,
+                centerTitle: true
+            )
           ),
           debugShowCheckedModeBanner:false, // 隐藏debug标识
           // initialRoute:AppPages.INITIAL,

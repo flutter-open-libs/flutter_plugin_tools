@@ -5,18 +5,24 @@ class SingContainerLinearGradient extends StatelessWidget {
 
   final double? width;
   final double? height;
+  final double radius;
   final List<Color> colors;
   final AlignmentGeometry begin;
   final AlignmentGeometry end;
+  final EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? padding;
   final Widget? child;
 
   const SingContainerLinearGradient({
     super.key,
     this.width,
     this.height,
+    this.radius = 0,
     this.colors = const [],
     this.begin = Alignment.topCenter,
     this.end = Alignment.bottomCenter,
+    this.margin,
+    this.padding,
     this.child,
   });
 
@@ -26,7 +32,10 @@ class SingContainerLinearGradient extends StatelessWidget {
     return Container(
       width: width ?? Get.width,
       height: height ?? Get.width / 2,
+      margin: margin,
+      padding: padding,
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(radius)),
         gradient: LinearGradient(
           begin: begin,
           end: end,

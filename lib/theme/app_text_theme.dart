@@ -72,7 +72,6 @@ final TextStyle text_333333_14 = TextStyle(
   color: AppColor.ff333333,
   fontSize: 14.sp,
 );
-
 final TextStyle text_333333_14b = TextStyle(
   color: AppColor.ff333333,
   fontSize: 14.sp,
@@ -125,6 +124,15 @@ final TextStyle text_666666_16 = TextStyle(
 final TextStyle text_666666_16b = TextStyle(
   color: AppColor.ff666666,
   fontSize: 16.sp,
+  fontWeight: FontWeight.bold,
+);
+final TextStyle text_666666_18 = TextStyle(
+  color: AppColor.ff666666,
+  fontSize: 18.sp,
+);
+final TextStyle text_666666_18b = TextStyle(
+  color: AppColor.ff666666,
+  fontSize: 18.sp,
   fontWeight: FontWeight.bold,
 );
 
