@@ -1,3 +1,4 @@
+import '../bean/package_info.dart';
 import './sing_plugin_tools_platform_interface.dart';
 
 class SingPluginTools {
@@ -19,5 +20,9 @@ class SingPluginTools {
 
   Future<String?> getIosIdfa() {
     return SingPluginToolsPlatform.instance.getIosIdfa();
+  }
+
+  Future<PackageInfo> getPackageInfo() {
+    return SingPluginToolsPlatform.instance.getPackageInfo();
   }
 }

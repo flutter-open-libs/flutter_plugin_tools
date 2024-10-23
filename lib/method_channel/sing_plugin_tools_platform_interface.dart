@@ -1,4 +1,5 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import '../bean/package_info.dart';
 import './sing_plugin_tools_method_channel.dart';
 
 abstract class SingPluginToolsPlatform extends PlatformInterface {
@@ -33,5 +34,9 @@ abstract class SingPluginToolsPlatform extends PlatformInterface {
 
   Future<String?> getIosIdfa() {
     throw UnimplementedError('getIosIdfa() has not been implemented.');
+  }
+
+  Future<PackageInfo> getPackageInfo() {
+    throw UnimplementedError('getPackageInfo() has not been implemented.');
   }
 }

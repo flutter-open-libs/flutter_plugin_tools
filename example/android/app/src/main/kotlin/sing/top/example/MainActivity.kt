@@ -1,4 +1,4 @@
-package sing.top.plugin_tools.sing_plugin_tools_example
+package sing.top.example
 
 import io.flutter.embedding.android.FlutterActivity
 

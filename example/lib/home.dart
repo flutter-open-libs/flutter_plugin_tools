@@ -10,6 +10,7 @@ import 'widgets/image_demo.dart';
 import 'widgets/image_text.dart';
 import 'widgets/imei.dart';
 import 'widgets/oaid.dart';
+import 'widgets/package_info.dart';
 import 'widgets/request_phone_state.dart';
 
 
@@ -48,6 +49,7 @@ class _HomeState extends State<Home> {
               Imei(),
               Oaid(),
               Idfa(),
+              Package(),
               CellItem(),
               Button(),
               ImageText(),

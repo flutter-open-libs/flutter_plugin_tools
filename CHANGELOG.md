@@ -1,3 +1,7 @@
+## 0.0.19
+
+*  add getPackageInfo(),`appName`,`packageName`,`version`,`buildNumber`...
+
 ## 0.0.18
 
 *  add SingImage

@@ -7,7 +7,7 @@
 
 ```
 dependencies:
-  sing_plugin_tools: ^0.0.18
+  sing_plugin_tools: ^0.0.19
 ```
 
 ### 说明
@@ -60,6 +60,13 @@ dependencies:
     ```
     // -1:.denied,-2:.notDetermined,-3:.restricted
     String idfa = await FlutterPluginTools().getIosIdfa() ?? '-1'; 
+    ```
+
+* 获取 PackageInfo
+
+    ```
+    // appName,packageName,version,buildNumber,buildSignature,installerStore,
+    PackageInfo packageInfo = await _flutterPluginToolsPlugin.getPackageInfo();
     ```
 
 * 创建通用列表项

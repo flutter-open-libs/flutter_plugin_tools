@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import '../bean/package_info.dart';
 import './sing_plugin_tools_platform_interface.dart';
 
 class MethodChannelSingPluginTools extends SingPluginToolsPlatform {
@@ -29,5 +30,18 @@ class MethodChannelSingPluginTools extends SingPluginToolsPlatform {
   @override
   Future<String?> getIosIdfa() async {
     return await methodChannel.invokeMethod<String>('getIosIdfa');
+  }
+
+  @override
+  Future<PackageInfo> getPackageInfo() async {
+    final map = await methodChannel.invokeMapMethod<String, dynamic>('getPackageInfo');
+    return PackageInfo(
+      appName: map!['appName'] ?? '',
+      packageName: map['packageName'] ?? '',
+      version: map['version'] ?? '',
+      buildNumber: map['buildNumber'] ?? '',
+      buildSignature: map['buildSignature'] ?? '',
+      installerStore: map['installerStore'] as String?,
+    );
   }
 }

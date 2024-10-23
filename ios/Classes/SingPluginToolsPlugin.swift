@@ -34,6 +34,26 @@ public class SingPluginToolsPlugin: NSObject, FlutterPlugin {
             let idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
             result(idfa)
         }
+    case "getPackageInfo":
+        let appStoreReceiptPath = Bundle.main.appStoreReceiptURL?.path ?? ""
+        let installerStore: String
+        if appStoreReceiptPath.contains("CoreSimulator") {
+            installerStore = "com.apple.simulator"
+        } else if appStoreReceiptPath.contains("sandboxReceipt") {
+            installerStore = "com.apple.testflight"
+        } else {
+            installerStore = "com.apple"
+        }
+
+        let appInfo: [String: Any] = [
+            "appName": Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") ?? Bundle.main.object(forInfoDictionaryKey: "CFBundleName") ?? NSNull(),
+            "packageName": Bundle.main.bundleIdentifier ?? NSNull(),
+            "version": Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") ?? NSNull(),
+            "buildNumber": Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") ?? NSNull(),
+            "installerStore": installerStore
+        ]
+
+        result(appInfo)
     default:
       result(FlutterMethodNotImplemented)
     }

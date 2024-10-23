@@ -7,7 +7,6 @@ export 'package:get_storage/get_storage.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:flutter/material.dart';
 
-export './method_channel/sing_plugin_tools_platform_interface.dart';
 export './method_channel/sing_plugin_tools.dart';
 
 export './utils/event_bus_util.dart';
