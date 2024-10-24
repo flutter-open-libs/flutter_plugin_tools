@@ -1,5 +1,3 @@
-import 'dart:io';
-import 'package:sing_plugin_tools/bean/package_info.dart';
 import 'package:sing_plugin_tools/export.dart';
 import 'dart:async';
 

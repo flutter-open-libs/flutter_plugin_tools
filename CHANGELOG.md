@@ -1,3 +1,7 @@
+## 0.0.20
+
+*  Fix ApiProvider `getData => catch => showToast`
+
 ## 0.0.19
 
 *  add getPackageInfo(),`appName`,`packageName`,`version`,`buildNumber`...

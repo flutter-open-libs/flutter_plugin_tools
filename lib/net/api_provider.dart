@@ -65,8 +65,10 @@ class ApiProvider {
     } catch (error) {
       // if (error is DioException) {
       //   EasyLoading.showToast('Network error: ${error.message}');
+      if(isNeedToast){
         EasyLoading.showToast('请检查网络');
-        return ApiResponse(code: 500, msg: '请检查网络');
+      }
+      return ApiResponse(code: 500, msg: '请检查网络');
       // }
     }
   }
