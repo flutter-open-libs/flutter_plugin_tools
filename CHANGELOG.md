@@ -1,3 +1,7 @@
+## 0.0.21
+
+*  add DeviceInfo `getDeviceInfoAndroid` `getDeviceInfoIos`
+
 ## 0.0.20
 
 *  Fix ApiProvider `getData => catch => showToast`

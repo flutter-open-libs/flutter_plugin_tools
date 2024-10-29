@@ -3,7 +3,9 @@ package sing.top.plugin_tools
 
 import android.Manifest
 import android.app.Activity
+import android.app.ActivityManager
 import android.content.Context
+import android.content.pm.FeatureInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
@@ -66,21 +68,13 @@ class SingPluginToolsPlugin: FlutterPlugin, MethodCallHandler , ActivityAware, P
         }
       }
     } else if (call.method == "getPackageInfo") {
-      val packageManager = activity!!.packageManager
-      val info = packageManager.getPackageInfo(activity!!.packageName, 0)
-      val buildSignature = getBuildSignature(packageManager)
-      val installerPackage = getInstallerPackageName()
-      val infoMap = HashMap<String, String>()
-      infoMap.apply {
-        put("appName", info.applicationInfo?.loadLabel(packageManager)?.toString() ?: "")
-        put("packageName", activity!!.packageName)
-        put("version", info.versionName ?: "")
-        put("buildNumber", getLongVersionCode(info).toString())
-        if (buildSignature != null) put("buildSignature", buildSignature)
-        if (installerPackage != null) put("installerStore", installerPackage)
-      }.also { resultingMap ->
-        result.success(resultingMap)
-      }
+      val packageInfo = sing.top.plugin_tools.PackageInfo(activity!!)
+      result.success(packageInfo.getPackageInfo())
+    } else if (call.method == "getDeviceInfo") {
+      val packageManager: PackageManager = activity!!.packageManager
+      val activityManager: ActivityManager = activity!!.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+      var deviceInfo = DeviceInfo(packageManager, activityManager)
+      result.success(deviceInfo.getDeviceInfo())
     } else {
       result.notImplemented()
     }
@@ -129,82 +123,5 @@ class SingPluginToolsPlugin: FlutterPlugin, MethodCallHandler , ActivityAware, P
       pendingResult = null
     }
     return false
-  }
-
-  /**
-   * Using initiatingPackageName on Android 11 and newer because it can't be changed
-   * https://developer.android.com/reference/android/content/pm/InstallSourceInfo#getInitiatingPackageName()
-   */
-  private fun getInstallerPackageName(): String? {
-    val packageManager = activity!!.packageManager
-    val packageName = activity!!.packageName
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-      packageManager.getInstallSourceInfo(packageName).initiatingPackageName
-    } else {
-      @Suppress("DEPRECATION")
-      packageManager.getInstallerPackageName(packageName)
-    }
-  }
-
-  @Suppress("deprecation")
-  private fun getLongVersionCode(info: PackageInfo): Long {
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-      info.longVersionCode
-    } else {
-      info.versionCode.toLong()
-    }
-  }
-
-  @Suppress("deprecation", "PackageManagerGetSignatures")
-  private fun getBuildSignature(pm: PackageManager): String? {
-    return try {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-        val packageInfo = pm.getPackageInfo(activity!!.packageName, PackageManager.GET_SIGNING_CERTIFICATES)
-        val signingInfo = packageInfo.signingInfo ?: return null
-
-        if (signingInfo.hasMultipleSigners()) {
-          signatureToSha256(signingInfo.apkContentsSigners.first().toByteArray())
-        } else {
-          signatureToSha256(signingInfo.signingCertificateHistory.first().toByteArray())
-        }
-      } else {
-        val packageInfo = pm.getPackageInfo(activity!!.packageName, PackageManager.GET_SIGNATURES)
-        val signatures = packageInfo.signatures
-
-        if (signatures.isNullOrEmpty() || signatures.first() == null) {
-          null
-        } else {
-          signatureToSha256(signatures.first().toByteArray())
-        }
-      }
-    } catch (e: PackageManager.NameNotFoundException) {
-      null
-    } catch (e: NoSuchAlgorithmException) {
-      null
-    }
-  }
-
-  // Credits https://gist.github.com/scottyab/b849701972d57cf9562e
-  @Throws(NoSuchAlgorithmException::class)
-  private fun signatureToSha256(sig: ByteArray): String {
-    val digest = MessageDigest.getInstance("SHA-256")
-    digest.update(sig)
-    val hashText = digest.digest()
-    return bytesToHex(hashText)
-  }
-
-  // Credits https://gist.github.com/scottyab/b849701972d57cf9562e
-  private fun bytesToHex(bytes: ByteArray): String {
-    val hexArray = charArrayOf(
-      '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
-    )
-    val hexChars = CharArray(bytes.size * 2)
-    var v: Int
-    for (j in bytes.indices) {
-      v = bytes[j].toInt() and 0xFF
-      hexChars[j * 2] = hexArray[v ushr 4]
-      hexChars[j * 2 + 1] = hexArray[v and 0x0F]
-    }
-    return String(hexChars)
   }
 }

@@ -1,6 +1,6 @@
 name: sing_plugin_tools
 description: "各种flutter的小插件、工具"
-version: 0.0.20
+version: 0.0.21
 homepage: https://github.com/flutter-open-libs/flutter_plugin_tools
 
 environment:

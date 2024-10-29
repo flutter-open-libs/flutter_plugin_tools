@@ -1,5 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:sing_plugin_tools/utils/log_util.dart';
+import '../bean/device_info_android.dart';
+import '../bean/device_info_ios.dart';
 import '../bean/package_info.dart';
 import './sing_plugin_tools_platform_interface.dart';
 
@@ -43,5 +46,17 @@ class MethodChannelSingPluginTools extends SingPluginToolsPlatform {
       buildSignature: map['buildSignature'] ?? '',
       installerStore: map['installerStore'] as String?,
     );
+  }
+
+  @override
+  Future<DeviceInfoAndroid> getDeviceInfoAndroid() async {
+    final map = await methodChannel.invokeMapMethod<String, dynamic>('getDeviceInfo');
+    return DeviceInfoAndroid.fromMap(map!);
+  }
+
+  @override
+  Future<DeviceInfoIos> getDeviceInfoIos() async {
+    final map = await methodChannel.invokeMapMethod<String, dynamic>('getDeviceInfo');
+    return DeviceInfoIos.fromMap(map!);
   }
 }

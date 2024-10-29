@@ -1,38 +1,44 @@
 import 'package:sing_plugin_tools/export.dart';
 import 'dart:async';
 
-
-class Package extends StatefulWidget {
-  const Package({super.key});
+class DeviceInfo extends StatefulWidget {
+  const DeviceInfo({super.key});
 
   @override
-  State<Package> createState() => _PackageState();
+  State<DeviceInfo> createState() => _DeviceInfoState();
 }
 
-class _PackageState extends State<Package> {
+class _DeviceInfoState extends State<DeviceInfo> {
   final _flutterPluginToolsPlugin = SingPluginTools();
 
-  Future<void> getPackageInfo() async {
-    PackageInfo packageInfoTemp = await _flutterPluginToolsPlugin.getPackageInfo();
-    show(packageInfoTemp.toString());
+  Future<void> getDeviceInfo() async {
+    if(GetPlatform.isAndroid) {
+      DeviceInfoAndroid deviceInfoTemp = await _flutterPluginToolsPlugin.getDeviceInfoAndroid();
+      show(deviceInfoTemp.toString());
+    } else if(GetPlatform.isIOS){
+      DeviceInfoIos deviceInfoTemp = await _flutterPluginToolsPlugin.getDeviceInfoIos();
+      show(deviceInfoTemp.toString());
+    }else{
+      show('暂不支持');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => getPackageInfo(),
+      onTap: () => getDeviceInfo(),
       child: Column(
         children: [
           Container(
             margin: EdgeInsets.symmetric(horizontal: 15.w),
+            padding: const EdgeInsets.only(left: 15,right: 15,top: 12,bottom: 12),
             decoration: const BoxDecoration(
               color: Colors.white,
               border: Border(bottom: BorderSide(color: Colors.grey, width: 0.2))
             ),
-            padding: const EdgeInsets.only(left: 15,right: 15,top: 12,bottom: 12),
             child: Row(
               children: [
-                const Expanded(child: Text('获取 PackageInfo',style: TextStyle(color: Colors.black87,fontSize: 14))),
+                const Expanded(child: Text('获取 DeviceInfo',style: TextStyle(color: Colors.black87,fontSize: 14))),
                 SingImage('images/ic_next.png',width: 15.w)
               ],
             ),

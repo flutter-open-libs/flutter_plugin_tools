@@ -7,7 +7,7 @@
 
 ```
 dependencies:
-  sing_plugin_tools: ^0.0.20
+  sing_plugin_tools: ^0.0.21
 ```
 
 ### 说明
@@ -67,6 +67,13 @@ dependencies:
     ```
     // appName,packageName,version,buildNumber,buildSignature,installerStore,
     PackageInfo packageInfo = await _flutterPluginToolsPlugin.getPackageInfo();
+    ```
+
+* 获取 DeviceInfo
+
+    ```
+    DeviceInfoAndroid deviceInfoTemp = await SingPluginTools().getDeviceInfoAndroid();
+    DeviceInfoIos deviceInfoTemp = await SingPluginTools().getDeviceInfoIos();
     ```
 
 * 创建通用列表项

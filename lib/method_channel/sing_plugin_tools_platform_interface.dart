@@ -1,4 +1,6 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import '../bean/device_info_android.dart';
+import '../bean/device_info_ios.dart';
 import '../bean/package_info.dart';
 import './sing_plugin_tools_method_channel.dart';
 
@@ -38,5 +40,13 @@ abstract class SingPluginToolsPlatform extends PlatformInterface {
 
   Future<PackageInfo> getPackageInfo() {
     throw UnimplementedError('getPackageInfo() has not been implemented.');
+  }
+
+  Future<DeviceInfoAndroid> getDeviceInfoAndroid() {
+    throw UnimplementedError('getDeviceInfoAndroid() has not been implemented.');
+  }
+
+  Future<DeviceInfoIos> getDeviceInfoIos() {
+    throw UnimplementedError('getDeviceInfoIos() has not been implemented.');
   }
 }

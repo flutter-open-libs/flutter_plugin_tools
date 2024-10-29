@@ -5,6 +5,7 @@ import 'widgets/button.dart';
 import 'widgets/cell_item.dart';
 import 'widgets/container_linear_gradient.dart';
 import 'widgets/dashed.dart';
+import 'widgets/device_info.dart';
 import 'widgets/idfa.dart';
 import 'widgets/image_demo.dart';
 import 'widgets/image_text.dart';
@@ -50,6 +51,7 @@ class _HomeState extends State<Home> {
               Oaid(),
               Idfa(),
               Package(),
+              DeviceInfo(),
               CellItem(),
               Button(),
               ImageText(),
