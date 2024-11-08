@@ -12,7 +12,7 @@ class Button extends StatelessWidget {
         titleTextStyle: const TextStyle(color: Colors.white,fontSize: 16.0), // 按钮样式
         fillColor: const Color(0xFF19B1F4),   // 填充颜色
         highlightColor: const Color(0x40CCCCCC), // 按下颜色
-        size: Size(Get.width-30.w,36.w), // 按钮大小
+        size: Size(Get.width - 30.w,36.w), // 按钮大小
         elevation: 0, // 阴影
         highlightElevation: 0, // 按下阴影
         side: const BorderSide(color: Colors.transparent,width: 0.2), // 边框

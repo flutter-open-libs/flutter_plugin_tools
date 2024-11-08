@@ -45,22 +45,24 @@ class SingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin ?? EdgeInsets.zero,
-      child: RawMaterialButton(
-        fillColor: fillColor,
-        elevation: elevation,
-        padding: padding ?? EdgeInsets.zero,
-        highlightColor: highlightColor ?? Theme.of(context).highlightColor,
-        splashColor: splashColor ?? Theme.of(context).splashColor,
-        highlightElevation: highlightElevation,
-        shape: RoundedRectangleBorder(
-            side: side ?? BorderSide(color: sideColor, width: sideWidth),
-            borderRadius: _getBorderRadius()),
-        constraints: _getConstraints(),
-        onPressed: onPressed ?? () => debugPrint('SingButton Clicked'),
-        onLongPress: onPressed ?? () => debugPrint('SingButton Clicked'),
-        child: Text(title,
-            style: titleTextStyle ??
-                const TextStyle(color: Colors.white, fontSize: 16.0)),
+      child: Center(
+        child: RawMaterialButton(
+          fillColor: fillColor,
+          elevation: elevation,
+          padding: padding ?? EdgeInsets.zero,
+          highlightColor: highlightColor ?? Theme.of(context).highlightColor,
+          splashColor: splashColor ?? Theme.of(context).splashColor,
+          highlightElevation: highlightElevation,
+          shape: RoundedRectangleBorder(
+              side: side ?? BorderSide(color: sideColor, width: sideWidth),
+              borderRadius: _getBorderRadius()),
+          constraints: _getConstraints(),
+          onPressed: onPressed ?? () => debugPrint('SingButton Clicked'),
+          onLongPress: onPressed ?? () => debugPrint('SingButton Clicked'),
+          child: Text(title,
+              style: titleTextStyle ??
+                  const TextStyle(color: Colors.white, fontSize: 16.0)),
+        ),
       ),
     );
   }

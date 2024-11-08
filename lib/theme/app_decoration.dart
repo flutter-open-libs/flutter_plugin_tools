@@ -32,3 +32,16 @@ final BoxDecoration decorationWhiteRadiusBottom10 = BoxDecoration(
   color: AppColor.white,
   borderRadius: BorderRadius.vertical(bottom: Radius.circular(10.w)),
 );
+
+final BoxDecoration decorationWhiteRadius12 = BoxDecoration(
+    color: AppColor.white,
+    borderRadius: BorderRadius.all(Radius.circular(12.w))
+);
+final BoxDecoration decorationWhiteRadiusTop12 = BoxDecoration(
+  color: AppColor.white,
+  borderRadius: BorderRadius.vertical(top: Radius.circular(12.w)),
+);
+final BoxDecoration decorationWhiteRadiusBottom12 = BoxDecoration(
+  color: AppColor.white,
+  borderRadius: BorderRadius.vertical(bottom: Radius.circular(12.w)),
+);

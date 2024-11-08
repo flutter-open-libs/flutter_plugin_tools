@@ -17,7 +17,6 @@ final TextStyle text_131732_14 = TextStyle(
   color: AppColor.ff131732,
   fontSize: 14.sp,
 );
-
 final TextStyle text_131732_14b = TextStyle(
   color: AppColor.ff131732,
   fontSize: 14.sp,
@@ -111,7 +110,6 @@ final TextStyle text_666666_14 = TextStyle(
   color: AppColor.ff666666,
   fontSize: 14.sp,
 );
-
 final TextStyle text_666666_14b = TextStyle(
   color: AppColor.ff666666,
   fontSize: 14.sp,
@@ -138,6 +136,45 @@ final TextStyle text_666666_18b = TextStyle(
 
 
 
+final TextStyle text_999999_12 = TextStyle(
+  color: AppColor.ff999999,
+  fontSize: 12.sp,
+);
+final TextStyle text_999999_12b = TextStyle(
+  color: AppColor.ff999999,
+  fontSize: 12.sp,
+  fontWeight: FontWeight.bold,
+);
+final TextStyle text_999999_14 = TextStyle(
+  color: AppColor.ff999999,
+  fontSize: 14.sp,
+);
+final TextStyle text_999999_14b = TextStyle(
+  color: AppColor.ff999999,
+  fontSize: 14.sp,
+  fontWeight: FontWeight.bold,
+);
+final TextStyle text_999999_16 = TextStyle(
+  color: AppColor.ff999999,
+  fontSize: 16.sp,
+);
+final TextStyle text_999999_16b = TextStyle(
+  color: AppColor.ff999999,
+  fontSize: 16.sp,
+  fontWeight: FontWeight.bold,
+);
+final TextStyle text_999999_18 = TextStyle(
+  color: AppColor.ff999999,
+  fontSize: 18.sp,
+);
+final TextStyle text_999999_18b = TextStyle(
+  color: AppColor.ff999999,
+  fontSize: 18.sp,
+  fontWeight: FontWeight.bold,
+);
+
+
+
 final TextStyle text_grey_10 = TextStyle(
   color: AppColor.grey,
   fontSize: 10.sp,
@@ -145,6 +182,11 @@ final TextStyle text_grey_10 = TextStyle(
 final TextStyle text_grey_12 = TextStyle(
   color: AppColor.grey,
   fontSize: 12.sp,
+);
+final TextStyle text_grey_12b = TextStyle(
+  color: AppColor.grey,
+  fontSize: 12.sp,
+  fontWeight: FontWeight.bold,
 );
 final TextStyle text_grey_14 = TextStyle(
   color: AppColor.grey,

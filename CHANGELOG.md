@@ -1,3 +1,7 @@
+## 0.0.22
+
+*  Fix SingButton `width` `height`
+
 ## 0.0.21
 
 *  add DeviceInfo `getDeviceInfoAndroid` `getDeviceInfoIos`
