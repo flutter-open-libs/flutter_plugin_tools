@@ -212,6 +212,43 @@ final TextStyle text_grey_18 = TextStyle(
 );
 
 
+final TextStyle text_cccccc_10 = TextStyle(
+  color: AppColor.ffcccccc,
+  fontSize: 10.sp,
+);
+final TextStyle text_cccccc_12 = TextStyle(
+  color: AppColor.ffcccccc,
+  fontSize: 12.sp,
+);
+final TextStyle text_cccccc_12b = TextStyle(
+  color: AppColor.ffcccccc,
+  fontSize: 12.sp,
+  fontWeight: FontWeight.bold,
+);
+final TextStyle text_cccccc_14 = TextStyle(
+  color: AppColor.ffcccccc,
+  fontSize: 14.sp,
+);
+final TextStyle text_cccccc_14b = TextStyle(
+  color: AppColor.ffcccccc,
+  fontSize: 14.sp,
+  fontWeight: FontWeight.bold,
+);
+final TextStyle text_cccccc_16 = TextStyle(
+  color: AppColor.ffcccccc,
+  fontSize: 16.sp,
+);
+final TextStyle text_cccccc_16b = TextStyle(
+  color: AppColor.ffcccccc,
+  fontSize: 16.sp,
+  fontWeight: FontWeight.bold,
+);
+final TextStyle text_cccccc_18 = TextStyle(
+  color: AppColor.ffcccccc,
+  fontSize: 18.sp,
+);
+
+
 
 final TextStyle text_main_12 = TextStyle(
   color: AppColor.main,
@@ -260,6 +297,10 @@ final TextStyle text_main_30 = TextStyle(
 
 
 
+final TextStyle text_white_11 = TextStyle(
+  color: AppColor.white,
+  fontSize: 11.sp,
+);
 final TextStyle text_white_12 = TextStyle(
   color: AppColor.white,
   fontSize: 12.sp,
