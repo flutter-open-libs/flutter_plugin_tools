@@ -15,6 +15,11 @@ class SingImgTxtItem extends StatelessWidget {
     this.gap,
     this.textStyle,
     this.crossAxisCount = 4,
+    this.crossAxisSpacing = 10.0,
+    this.mainAxisSpacing = 10.0,
+    this.childAspectRatio = 1.0,
+    this.physics = null,
+    this.shrinkWrap = true,
   });
 
   final List<ImgTxtBean> list; // 必传的 list 列表
@@ -28,6 +33,12 @@ class SingImgTxtItem extends StatelessWidget {
   final double? gap; // 文字和图标的间距
   final TextStyle? textStyle; // 文字样式
   final int crossAxisCount; // 每行有几个
+  final double crossAxisSpacing;// 列间距
+  final double mainAxisSpacing; // 行间距
+  final double childAspectRatio; // 宽高比
+  final ScrollPhysics? physics;
+  final bool shrinkWrap;
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,30 +62,31 @@ class SingImgTxtItem extends StatelessWidget {
                           color: Color(0xff131732), fontSize: 16.0))),
           Visibility(
               visible: title != null, child: SizedBox(height: titleGap ?? 0.0)),
-          ...List.generate(hang, (columnIndex) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(crossAxisCount, (rowIndex) {
-                var pos = (columnIndex * crossAxisCount) + rowIndex;
-                if (pos >= list.length) {
-                  return Container();
-                } else {
-                  return InkWell(
-                    onTap: list[pos].onTap ?? () => debugPrint('没有点击事件'),
-                    child: Column(mainAxisSize: MainAxisSize.min, children: [
-                      Image.asset(list[pos].assetPath,
-                          width: iconSize.width, height: iconSize.height,package: list[pos].package),
-                      SizedBox(height: gap ?? 0.0),
-                      Text(list[pos].title,
-                          style: textStyle ??
-                              const TextStyle(
-                                  color: Color(0xff131732), fontSize: 16.0)),
-                    ]),
-                  );
-                }
-              }),
-            );
-          })
+          GridView.builder(
+            physics: physics ?? NeverScrollableScrollPhysics(),
+            shrinkWrap: shrinkWrap,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: crossAxisCount,
+              crossAxisSpacing: crossAxisSpacing,
+              mainAxisSpacing: mainAxisSpacing,
+              childAspectRatio: childAspectRatio,
+            ),
+            itemCount: list.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: list[index].onTap ?? () => debugPrint('没有点击事件'),
+                child: Column(mainAxisSize: MainAxisSize.min, children: [
+                  Image.asset(list[index].assetPath,
+                      width: iconSize.width, height: iconSize.height,package: list[index].package),
+                  SizedBox(height: gap ?? 0.0),
+                  Text(list[index].title,
+                      style: textStyle ??
+                          const TextStyle(
+                              color: Color(0xff131732), fontSize: 16.0)),
+                ]),
+              );
+            },
+          ),
         ],
       ),
     );

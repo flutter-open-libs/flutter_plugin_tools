@@ -57,7 +57,7 @@ class CommonDialog extends StatelessWidget {
       width: Get.width - 30.w,
         padding: EdgeInsets.symmetric(horizontal : 15.w,vertical: 10.w),
         decoration: BoxDecoration(
-          color: const Color(0xffE9F7FE),
+          color: AppColor.main.withOpacity(0.1),
           borderRadius: BorderRadius.vertical(top: Radius.circular(4.w)),
         ),
         child: Text(titleStr ?? '温馨提示',style: text_main_18b)

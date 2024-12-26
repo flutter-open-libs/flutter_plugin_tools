@@ -1,4 +1,8 @@
-## 0.0.23
+## 0.0.24
+
+*  Fix SingImgTxtItem GridView replace List
+
+* ## 0.0.23
 
 *  add some theme
 
