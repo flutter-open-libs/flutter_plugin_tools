@@ -11,6 +11,7 @@ class SingImgTxtItem extends StatelessWidget {
     this.titleGap,
     this.titleTextStyle,
     this.decoration,
+    this.backgroundDecoration,
     this.iconSize = const Size(28.0, 28.0),
     this.gap,
     this.textStyle,
@@ -18,7 +19,7 @@ class SingImgTxtItem extends StatelessWidget {
     this.crossAxisSpacing = 10.0,
     this.mainAxisSpacing = 10.0,
     this.childAspectRatio = 1.0,
-    this.physics = null,
+    this.physics,
     this.shrinkWrap = true,
   });
 
@@ -29,6 +30,7 @@ class SingImgTxtItem extends StatelessWidget {
   final double? titleGap; // 标题与图标的间距
   final TextStyle? titleTextStyle; // 标题文字样式
   final BoxDecoration? decoration; // 外背景
+  final BoxDecoration? backgroundDecoration; // 内背景，item背景
   final Size iconSize; // 图标大小
   final double? gap; // 文字和图标的间距
   final TextStyle? textStyle; // 文字样式
@@ -42,7 +44,6 @@ class SingImgTxtItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var hang = (list.length / crossAxisCount).ceil(); // 有几行
     return Container(
       padding: padding ?? EdgeInsets.zero,
       decoration: decoration ??
@@ -63,7 +64,7 @@ class SingImgTxtItem extends StatelessWidget {
           Visibility(
               visible: title != null, child: SizedBox(height: titleGap ?? 0.0)),
           GridView.builder(
-            physics: physics ?? NeverScrollableScrollPhysics(),
+            physics: physics ?? const NeverScrollableScrollPhysics(),
             shrinkWrap: shrinkWrap,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: crossAxisCount,
@@ -75,15 +76,21 @@ class SingImgTxtItem extends StatelessWidget {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: list[index].onTap ?? () => debugPrint('没有点击事件'),
-                child: Column(mainAxisSize: MainAxisSize.min, children: [
-                  Image.asset(list[index].assetPath,
-                      width: iconSize.width, height: iconSize.height,package: list[index].package),
-                  SizedBox(height: gap ?? 0.0),
-                  Text(list[index].title,
-                      style: textStyle ??
-                          const TextStyle(
-                              color: Color(0xff131732), fontSize: 16.0)),
-                ]),
+                child: Container(
+                  decoration: backgroundDecoration,
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(list[index].assetPath,
+                          width: iconSize.width, height: iconSize.height,package: list[index].package),
+                      SizedBox(height: gap ?? 0.0),
+                      Text(list[index].title,
+                          style: textStyle ??
+                              const TextStyle(
+                                  color: Color(0xff131732), fontSize: 14.0)),
+                  ]),
+                ),
               );
             },
           ),

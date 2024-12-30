@@ -1,18 +1,32 @@
-import 'package:flutter/material.dart';
 import 'package:sing_plugin_tools/export.dart';
 
 /// 垂直分割线
 class LineVertical extends StatelessWidget {
-  const LineVertical({super.key,this.height = 10.0});
+  const LineVertical(
+      this.height, {
+      this.width = 0.2,
+      this.radius = 0,
+      this.color,
+      this.margin,
+      super.key,
+    });
 
+  final double width;
   final double height;
+  final double radius;
+  final Color? color;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
-    if(height > 0){
-      return Container(color: AppColor.line,width: 0.2,height: height);
-    }else{
-      return Container(color: AppColor.line,width: 0.2);
-    }
+    return Container(
+      width: width,
+      height: height,
+      margin: margin,
+      decoration: BoxDecoration(
+        color: color ?? AppColor.line,
+        borderRadius: BorderRadius.all(Radius.circular(radius))
+      ),
+    );
   }
 }

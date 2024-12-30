@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:sing_plugin_tools/export.dart';
 
 /// 虚线
 /// DashedLine(
@@ -9,28 +9,31 @@ import 'package:flutter/material.dart';
 class DashedLinePainter extends CustomPainter {
   final Color color; // 颜色
   final double dashWidth; // 每段虚线的长度
+  final double dashHeight; // 每段虚线的高度
   final double dashSpace; // 每段虚线之间的间距
-  final double strokeWidth; // 线条宽度
+  final bool isRound; // 是否圆角
 
   DashedLinePainter({
     required this.color,
     required this.dashWidth,
+    required this.dashHeight,
     required this.dashSpace,
-    required this.strokeWidth,
+    required this.isRound,
   });
 
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
       ..color = color
-      ..strokeWidth = strokeWidth
-      ..style = PaintingStyle.stroke;
+      ..strokeWidth = dashHeight
+      ..style = PaintingStyle.stroke
+      ..strokeCap = isRound ? StrokeCap.round : StrokeCap.butt; // 设置线条两端为圆角
 
     double startX = 0;
     final space = (dashSpace + dashWidth);
 
     while (startX < size.width) {
-      canvas.drawLine(Offset(startX, 0), Offset(startX + dashWidth, 0), paint);
+      canvas.drawLine(Offset(startX, 0), Offset(startX + dashWidth - (isRound ? dashHeight : 0), 0), paint);
       startX += space;
     }
   }
@@ -40,25 +43,28 @@ class DashedLinePainter extends CustomPainter {
     return oldDelegate.color != color ||
         oldDelegate.dashWidth != dashWidth ||
         oldDelegate.dashSpace != dashSpace ||
-        oldDelegate.strokeWidth != strokeWidth;
+        oldDelegate.dashHeight != dashHeight;
   }
 }
 
 class SingDashedLine extends StatelessWidget {
-  final Color color;
+  final Color? color;
   final double dashWidth;
+  final double dashHeight;
   final double dashSpace;
-  final double strokeWidth;
   final double width;
   final double height;
+  final bool isRound;
 
-  SingDashedLine({
-    this.color = Colors.black,   // 默认黑色虚线
+  const SingDashedLine({
+    super.key,
+    this.color,                  // 虚线颜色
     this.dashWidth = 5.0,        // 默认虚线长度为5.0
+    this.dashHeight = 1.0,       // 默认虚线高度为5.0
     this.dashSpace = 3.0,        // 默认间隔为3.0
-    this.strokeWidth = 1.0,      // 默认线条宽度为1.0
     this.width = 200.0,          // 默认宽度为200
     this.height = 1.0,           // 默认高度为1.0
+    this.isRound = true,         // 是否圆角
   });
 
   @override
@@ -66,10 +72,11 @@ class SingDashedLine extends StatelessWidget {
     return CustomPaint(
       size: Size(width, height), // 控制虚线长度和高度
       painter: DashedLinePainter(
-        color: color,
+        color: color ?? AppColor.line,
         dashWidth: dashWidth,
+        dashHeight: dashHeight,
         dashSpace: dashSpace,
-        strokeWidth: strokeWidth,
+        isRound: isRound,
       ),
     );
   }

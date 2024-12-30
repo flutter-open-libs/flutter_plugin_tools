@@ -4,12 +4,12 @@ import 'widgets/android_id.dart';
 import 'widgets/button.dart';
 import 'widgets/cell_item.dart';
 import 'widgets/container_linear_gradient.dart';
-import 'widgets/dashed.dart';
 import 'widgets/device_info.dart';
 import 'widgets/idfa.dart';
 import 'widgets/image_demo.dart';
 import 'widgets/image_text.dart';
 import 'widgets/imei.dart';
+import 'widgets/line.dart';
 import 'widgets/oaid.dart';
 import 'widgets/package_info.dart';
 import 'widgets/request_phone_state.dart';
@@ -55,7 +55,7 @@ class _HomeState extends State<Home> {
               CellItem(),
               Button(),
               ImageText(),
-              Dashed(),
+              Line(),
               ContainerLinearGradient(),
               ImageDemo(),
             ],

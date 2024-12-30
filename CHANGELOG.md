@@ -1,3 +1,7 @@
+## 0.0.25
+
+*  add SingDashedLineBorder
+
 ## 0.0.24
 
 *  Fix SingImgTxtItem GridView replace List

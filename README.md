@@ -7,7 +7,7 @@
 
 ```
 dependencies:
-  sing_plugin_tools: ^0.0.24
+  sing_plugin_tools: ^0.0.25
 ```
 
 ### 说明

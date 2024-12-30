@@ -30,6 +30,7 @@ export './widgets/sing_img_txt_item.dart';
 export './widgets/sing_dashed_line.dart';
 export './widgets/sing_container_linear_gradient.dart';
 export './widgets/sing_image.dart';
+export './widgets/sing_dashed_line_border.dart';
 export './bean/package_info.dart';
 export './bean/device_info_ios.dart';
 export './bean/device_info_android.dart';
